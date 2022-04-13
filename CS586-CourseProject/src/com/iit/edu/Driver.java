@@ -48,7 +48,7 @@ public class Driver {
                         Account1 account1 = new Account1(mdaEfsm, concreteFactory1.getDataStore());
 
 
-                        while (!input.equalsIgnoreCase("Q")) {         //Iterative call to while loop until exit (Option Q)
+                        while (!input.equalsIgnoreCase("X")) {         //Iterative call to while loop until exit (Option X)
                             outputProcessor.DisplayMenu();
                             System.out.println("Enter your choice>>>>");
                             input = reader.readLine();
@@ -132,6 +132,12 @@ public class Driver {
                                 case "9": {
                                     System.out.println("Logout of Account:");
                                     account1.logout();
+                                    break;
+                                }
+
+                                case "X" :
+                                {
+                                    System.out.println("Exiting Account 1 Operations");
                                     break;
                                 }
 

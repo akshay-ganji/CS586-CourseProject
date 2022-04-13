@@ -163,5 +163,5 @@ public class MDAEFSM {
     }
 
     public void getCurrentState(){
-        System.out.println("Current State: "+ stateObject.getClass().getName());
+        System.out.println("Current State: "+ stateObject.getClass().getSimpleName());
     }}

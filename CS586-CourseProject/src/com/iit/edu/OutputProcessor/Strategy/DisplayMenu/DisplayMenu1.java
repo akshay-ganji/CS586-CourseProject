@@ -16,7 +16,7 @@ public class DisplayMenu1 extends DisplayMenu {
         System.out.println("7. Lock");
         System.out.println("8. Unlock");
         System.out.println("9. Logout");
-        System.out.println("Q. Quit from Account 1");
+        System.out.println("X. Quit from Account 1");
         System.out.println("--------------------------------------------------------------------------");
     }
 }
