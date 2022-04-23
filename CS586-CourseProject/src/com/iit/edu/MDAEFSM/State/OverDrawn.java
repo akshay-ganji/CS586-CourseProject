@@ -41,6 +41,7 @@ public class OverDrawn implements State{
     @Override
     public void Deposit() {
       mdaEfsm.outputProcessor.MakeDeposit();
+      mdaEfsm.setState(mdaEfsm.getS1State());
     }
 
     @Override
@@ -66,7 +67,6 @@ public class OverDrawn implements State{
     @Override
     public void Withdraw() {
         mdaEfsm.outputProcessor.NoFundsMsg();
-
     }
 
     @Override
@@ -81,13 +81,12 @@ public class OverDrawn implements State{
 
     @Override
     public void Lock() {
-
+        mdaEfsm.setState(mdaEfsm.getLockedState());
     }
 
     @Override
     public void IncorrectLock() {
         mdaEfsm.outputProcessor.IncorrectLockMsg();
-
     }
 
     @Override

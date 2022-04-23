@@ -23,7 +23,6 @@ public class Idle implements State{
     @Override
     public void IncorrectLogin() {
         mdaEfsm.outputProcessor.IncorrectIdMsg();
-
     }
 
     @Override

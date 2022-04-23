@@ -21,6 +21,7 @@ public class Account1 {
             ((DataStore1) dataStore).temp_y = y;
             ((DataStore1) dataStore).temp_a = a;
             mdaEfsm.Open();
+            mdaEfsm.getCurrentState();
         }
 
         public void login(int y)
@@ -29,6 +30,7 @@ public class Account1 {
             mdaEfsm.Login();
             else
             mdaEfsm.IncorrectLogin();
+            mdaEfsm.getCurrentState();
         }
 
         public void pin(int x )
@@ -42,8 +44,9 @@ public class Account1 {
             }
             else
             {
-                mdaEfsm.IncorrectPin(3);
+                mdaEfsm.IncorrectPin(Constants.ACCOUNT1_INCORRECT_PIN_ATTEMPTS);
             }
+            mdaEfsm.getCurrentState();
         }
 
         public void deposit(int d)
@@ -57,16 +60,19 @@ public class Account1 {
             } else {
                 mdaEfsm.BelowMinBalance();
             }
+            mdaEfsm.getCurrentState();
         }
 
         public void balance()
         {
             mdaEfsm.Balance();
+            mdaEfsm.getCurrentState();
         }
 
         public void logout()
         {
             mdaEfsm.Logout();
+            mdaEfsm.getCurrentState();
         }
 
         public void withdraw(int w)
@@ -74,25 +80,24 @@ public class Account1 {
             ((DataStore1) dataStore).temp_w = w;
             mdaEfsm.Withdraw();
 
-            if( ((DataStore1) dataStore).getBalance() > Constants.MIN_ACCOUNT1_BALANCE )
+            if( ((DataStore1) dataStore).getBalance() > w + Constants.MIN_ACCOUNT1_BALANCE )
             {
                 mdaEfsm.AboveMinBalance();
             }
-            else
+            else if( ((DataStore1) dataStore).getBalance() - w <= Constants.MIN_ACCOUNT1_BALANCE )
             {
                 mdaEfsm.WithdrawBelowMinBalance();
             }
+            mdaEfsm.getCurrentState();
         }
 
         public void lock(int x) {
-            System.out.println(((DataStore1) dataStore).getPin());
             if (x == ((DataStore1) dataStore).getPin()) {
                 mdaEfsm.Lock();
-                mdaEfsm.getCurrentState();
             } else {
                 mdaEfsm.IncorrectLock();
-                mdaEfsm.getCurrentState();
             }
+            mdaEfsm.getCurrentState();
         }
 
        public void unlock(int x)
@@ -110,8 +115,9 @@ public class Account1 {
                     mdaEfsm.BelowMinBalance();
                 }
             }
-            else
+            else {
                 mdaEfsm.IncorrectUnlock();
-
+            }
+            mdaEfsm.getCurrentState();
         }
 }

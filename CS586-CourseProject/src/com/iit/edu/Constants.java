@@ -10,4 +10,5 @@ public class Constants {
     public static final String UNKNOWN_STATUS = "UNKNOWN_STATUS";
     public static final int MIN_ACCOUNT1_BALANCE = 100;
     public static final int ACCOUNT1_PENALTY = 15;
+    public static final int ACCOUNT1_INCORRECT_PIN_ATTEMPTS = 1;
 }

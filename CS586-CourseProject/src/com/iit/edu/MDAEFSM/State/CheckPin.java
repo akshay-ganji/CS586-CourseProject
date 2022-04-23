@@ -43,8 +43,8 @@ public class CheckPin implements State {
             mdaEfsm.attempts ++;
             mdaEfsm.outputProcessor.IncorrectPinMsg();
         }else if(mdaEfsm.attempts==max){
-            mdaEfsm.outputProcessor.IncorrectIdMsg();
             mdaEfsm.outputProcessor.TooManyAttemptsMsg();
+            mdaEfsm.setState(mdaEfsm.getIdleState());
         }
     }
 

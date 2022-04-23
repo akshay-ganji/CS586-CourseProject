@@ -47,12 +47,12 @@ public class S1 implements State{
 
     @Override
     public void BelowMinBalance() {
-
+        mdaEfsm.setState(mdaEfsm.getOverDrawnState());
     }
 
     @Override
     public void AboveMinBalance() {
-
+        mdaEfsm.setState(mdaEfsm.getReadyState());
     }
 
     @Override
@@ -72,7 +72,7 @@ public class S1 implements State{
 
     @Override
     public void WithdrawBelowMinBalance() {
-        mdaEfsm.outputProcessor.Penalty();
+        mdaEfsm.outputProcessor.Penalty();      //ACCOUNT 1
         mdaEfsm.setState(mdaEfsm.getOverDrawnState());
     }
 

@@ -14,6 +14,7 @@ public class Start implements State {
     public void Open() {
         mdaEfsm.outputProcessor.StoreData();
         mdaEfsm.setState(mdaEfsm.getIdleState());
+        System.out.println("Login to continue.....");
     }
 
     @Override

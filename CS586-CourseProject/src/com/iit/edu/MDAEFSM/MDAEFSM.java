@@ -135,7 +135,6 @@ public class MDAEFSM {
 
     public void Lock() {
         stateObject.Lock();
-        System.out.println(stateObject.getClass());
     }
 
     public void IncorrectLock(){
@@ -163,5 +162,6 @@ public class MDAEFSM {
     }
 
     public void getCurrentState(){
-        System.out.println("Current State: "+ stateObject.getClass().getSimpleName());
-    }}
+        System.out.println("\n\nCURRENT STATE: "+ stateObject.getClass().getSimpleName());
+    }
+}
