@@ -4,15 +4,28 @@ import com.iit.edu.DataStore.DataStore;
 import com.iit.edu.DataStore.DataStore2;
 import com.iit.edu.OutputProcessor.Strategy.*;
 import com.iit.edu.OutputProcessor.Strategy.DisplayBalance.DisplayBalance;
+import com.iit.edu.OutputProcessor.Strategy.DisplayBalance.DisplayBalance2;
 import com.iit.edu.OutputProcessor.Strategy.DisplayMenu.DisplayMenu;
+import com.iit.edu.OutputProcessor.Strategy.DisplayMenu.DisplayMenu2;
 import com.iit.edu.OutputProcessor.Strategy.MakeDeposit.MakeDeposit;
+import com.iit.edu.OutputProcessor.Strategy.MakeDeposit.MakeDeposit2;
 import com.iit.edu.OutputProcessor.Strategy.MakeWithdraw.MakeWithdraw;
+import com.iit.edu.OutputProcessor.Strategy.MakeWithdraw.MakeWithdraw2;
 import com.iit.edu.OutputProcessor.Strategy.StoreData.StoreData;
 import com.iit.edu.OutputProcessor.Strategy.StoreData.StoreData2;
 
 public class ConcreteFactory2 implements AbstractFactory{
     DataStore dataStore2 = new DataStore2();
     StoreData storeData2 = new StoreData2();
+    PromptForPin promptForPin2 = new PromptForPin();
+    IncorrectIdMsg incorrectIdMsg2 = new IncorrectIdMsg();
+    IncorrectPinMsg incorrectPinMsg2 = new IncorrectPinMsg();
+    TooManyAttemptsMsg tooManyAttemptsMsg2 = new TooManyAttemptsMsg();
+    DisplayMenu displayMenu2 = new DisplayMenu2();
+    DisplayBalance displayBalance2 = new DisplayBalance2();
+    MakeDeposit makeDeposit2 = new MakeDeposit2();
+    MakeWithdraw makeWithdraw2 = new MakeWithdraw2();
+    NoFundsMsg noFundsMsg2 = new NoFundsMsg();
 
     @Override
     public DataStore CreateDataStore() {
@@ -21,47 +34,47 @@ public class ConcreteFactory2 implements AbstractFactory{
 
     @Override
     public StoreData CreateStoreData() {
-        return null;
+        return this.storeData2;
     }
 
     @Override
     public PromptForPin CreatePromptForPin() {
-        return null;
+        return this.promptForPin2;
     }
 
     @Override
     public IncorrectIdMsg CreateIncorrectIdMessage() {
-        return null;
+        return this.incorrectIdMsg2;
     }
 
     @Override
     public IncorrectPinMsg CreateIncorrectPinMessage() {
-        return null;
+        return this.incorrectPinMsg2;
     }
 
     @Override
     public TooManyAttemptsMsg CreateTooManyAttemptsMsg() {
-        return null;
+        return this.tooManyAttemptsMsg2;
     }
 
     @Override
     public DisplayMenu CreateDisplayMenu() {
-        return null;
+        return this.displayMenu2;
     }
 
     @Override
     public DisplayBalance CreateDisplayBalance() {
-        return null;
+        return this.displayBalance2;
     }
 
     @Override
     public MakeDeposit CreateMakeDeposit() {
-        return null;
+        return this.makeDeposit2;
     }
 
     @Override
     public MakeWithdraw CreateMakeWithdraw() {
-        return null;
+        return this.makeWithdraw2;
     }
 
     @Override
@@ -81,6 +94,10 @@ public class ConcreteFactory2 implements AbstractFactory{
 
     @Override
     public NoFundsMsg CreateNoFundsMsg() {
-        return null;
+        return this.noFundsMsg2;
+    }
+
+    public DataStore getDataStore() {
+        return this.dataStore2;
     }
 }

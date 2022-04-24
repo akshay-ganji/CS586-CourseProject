@@ -8,6 +8,5 @@ public class MakeWithdraw2 extends MakeWithdraw{
     public void MakeWithdraw(DataStore ds)
     {
         ((DataStore2)ds).WithdrawFromAccount();
-        System.out.println("Account 2:: After Withdraw Balance is $" + ((DataStore2)ds).getBalance() );
     }
 }

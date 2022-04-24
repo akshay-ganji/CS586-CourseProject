@@ -113,7 +113,7 @@ public class Suspended implements State{
 
     @Override
     public void Close() {
-        System.out.println("Account Terminated");
+        System.out.println("Account 2 has been terminated");
         System.exit(0);
     }
 }

@@ -3,7 +3,7 @@ package com.iit.edu.OutputProcessor.Strategy;
 public class TooManyAttemptsMsg {
     public void TooManyAttemptsMsg()
     {
-        System.out.println("Incorrect PIN! Too many invalid attempts. ");
-        System.out.println("Login to continue.....");
+        System.out.println("\nToo many invalid attempts. ");
+        System.out.println("Re-login to continue.....");
     }
 }

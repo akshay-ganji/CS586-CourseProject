@@ -6,8 +6,8 @@ import com.iit.edu.DataStore.*;
 
 public class Account1 {
 
-        MDAEFSM mdaEfsm = null;
-        DataStore dataStore = null;
+        MDAEFSM mdaEfsm;
+        DataStore dataStore;
 
         public Account1(MDAEFSM mdaEfsm, DataStore dataStore)
         {
