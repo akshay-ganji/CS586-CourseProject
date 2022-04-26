@@ -7,25 +7,25 @@ import com.iit.edu.DataStore.*;
 public class Account2 {
 
     MDAEFSM mdaEfsm;
-    DataStore dataStore;
+    DataStore2 dataStore2;
 
-    public Account2(MDAEFSM mdaEfsm, DataStore dataStore)
+    public Account2(MDAEFSM mdaEfsm, DataStore2 dataStore2)
     {
         this.mdaEfsm = mdaEfsm;
-        this.dataStore = dataStore;
+        this.dataStore2 = dataStore2;
     }
 
     public void OPEN(int p,int y,float a)
     {
-        ((DataStore2) dataStore).temp_p = p;
-        ((DataStore2) dataStore).temp_y = y;
-        ((DataStore2) dataStore).temp_a = a;
+        dataStore2.temp_p = p;
+        dataStore2.temp_y = y;
+        dataStore2.temp_a = a;
         mdaEfsm.Open();
         mdaEfsm.getCurrentState();
     }
     public void LOGIN(int y)
     {
-        if(y == ((DataStore2) dataStore).getId() ){
+        if(y == dataStore2.getId()){
             mdaEfsm.Login();
         } else {
             mdaEfsm.IncorrectLogin();
@@ -35,7 +35,7 @@ public class Account2 {
 
     public void PIN(int x )
     {
-        if( x == ((DataStore2) dataStore).getPin() ) {
+        if( x == dataStore2.getPin()) {
             mdaEfsm.CorrectPinAboveMin();
         } else {
             mdaEfsm.IncorrectPin(Constants.ACCOUNT2_INCORRECT_PIN_ATTEMPTS);
@@ -45,15 +45,8 @@ public class Account2 {
 
     public void DEPOSIT(float d)
     {
-        ((DataStore2) dataStore).temp_d = d;
+        dataStore2.temp_d = d;
         mdaEfsm.Deposit();
-
-        if( ((DataStore2) dataStore).getBalance() > Constants.MIN_ACCOUNT2_BALANCE)
-        {
-            mdaEfsm.AboveMinBalance();
-        } else {
-            mdaEfsm.BelowMinBalance();
-        }
         mdaEfsm.getCurrentState();
     }
 
@@ -71,8 +64,8 @@ public class Account2 {
 
     public void WITHDRAW(float w)
     {
-        ((DataStore2) dataStore).temp_w = w;
-        if( ((DataStore2) dataStore).getBalance() > Constants.MIN_ACCOUNT2_BALANCE )
+        dataStore2.temp_w = w;
+        if( dataStore2.getBalance() > Constants.MIN_ACCOUNT2_BALANCE )
         {
             mdaEfsm.Withdraw();
             mdaEfsm.AboveMinBalance();

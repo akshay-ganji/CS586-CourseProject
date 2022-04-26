@@ -7,59 +7,31 @@ import com.iit.edu.OutputProcessor.OutputProcessor;
 
 
 public class MDAEFSM {
-    public OutputProcessor outputProcessor = null;
-
-    State Start = new Start(this);
-    State Idle = new Idle(this);
-    State CheckPin = new CheckPin(this);
-    State OverDrawn = new OverDrawn(this);
-    State Ready = new Ready(this);
-    State S1 = new S1(this);
-    State Locked = new Locked(this);
-    State Suspended = new Suspended(this);
-
     AbstractFactory abstractFactory = null;
-    State stateObject = null;
-
-    public MDAEFSM(AbstractFactory abstractFactory, OutputProcessor outputProcessor) {
-        stateObject = Start;
-        this.abstractFactory = abstractFactory;
-        this.outputProcessor = outputProcessor;
-    }
+    public OutputProcessor outputProcessor = null;
+    public State stateObject = null;
+    public State[] stateList = new State[8];
 
     public int attempts;
 
-    public void setState(State state)
+    public MDAEFSM(AbstractFactory abstractFactory, OutputProcessor outputProcessor) {
+        this.abstractFactory = abstractFactory;
+        this.outputProcessor = outputProcessor;
+
+        stateList[0] = new Start(this);
+        stateList[1] = new Idle(this);
+        stateList[2] = new CheckPin(this);
+        stateList[3] = new OverDrawn(this);
+        stateList[4] = new Ready(this);
+        stateList[5] = new S1(this);
+        stateList[6] = new Locked(this);
+        stateList[7] = new Suspended(this);
+        stateObject = stateList[0];
+    }
+
+    public void changeState(int state)
     {
-        this.stateObject = state;
-    }
-
-    public State getIdleState() {
-        return Idle;
-    }
-
-    public State getCheckPinState() {
-        return CheckPin;
-    }
-
-    public State getOverDrawnState() {
-        return OverDrawn;
-    }
-
-    public State getReadyState() {
-        return Ready;
-    }
-
-    public State getS1State() {
-        return S1;
-    }
-
-    public State getSuspendedState() {
-        return Suspended;
-    }
-
-    public State getLockedState() {
-        return Locked;
+        this.stateObject = stateList[state];
     }
 
     public void Open()
@@ -162,6 +134,6 @@ public class MDAEFSM {
     }
 
     public void getCurrentState(){
-        System.out.println("\n\nCURRENT STATE: "+ stateObject.getClass().getSimpleName());
+        System.out.println("CURRENT STATE: "+ stateObject.getClass().getSimpleName());
     }
 }

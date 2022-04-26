@@ -8,6 +8,6 @@ public class DisplayBalance2 extends DisplayBalance{
 
     @Override
     public void DisplayBalance(DataStore dataStore) {
-        System.out.println("Current Balance is $"+ ((DataStore2) dataStore).getBalance());
+        System.out.println("Account 2: Current Balance is $"+ ((DataStore2) dataStore).getBalance());
     }
 }

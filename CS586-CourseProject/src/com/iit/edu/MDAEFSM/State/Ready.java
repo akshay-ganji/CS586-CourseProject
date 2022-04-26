@@ -1,42 +1,43 @@
 package com.iit.edu.MDAEFSM.State;
 
+import com.iit.edu.Constants;
 import com.iit.edu.MDAEFSM.MDAEFSM;
 
 public class Ready implements State{
-    MDAEFSM mdaEfsm = null;
+    MDAEFSM mdaEfsm;                                            //Create MDAEFSM Object needed for Ready State operations
 
-    public Ready(MDAEFSM mdaEfsm) {
+    public Ready(MDAEFSM mdaEfsm) {     //Constructor to initialize MDAEFSM
         this.mdaEfsm = mdaEfsm;
-    }
+    }   //Constructor to initialize MDAEFSM
 
     @Override
     public void Open() {
-
+        System.out.println("\nWARNING: Account is already opened. Open("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
     }
 
     @Override
     public void Login() {
-
+        System.out.println("\nWARNING: Account is already logged in. Login("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
     }
 
     @Override
     public void IncorrectLogin() {
-
+        System.out.println("\nWARNING: Account is already logged in. Login("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
     }
 
     @Override
     public void CorrectPinBelowMin() {
-
+        //This method is not reachable for READY state
     }
 
     @Override
     public void CorrectPinAboveMin() {
-
+        System.out.println("\nWARNING: Account is already logged in. Pin("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
     }
 
     @Override
     public void IncorrectPin(int max) {
-
+        System.out.println("\nWARNING: Account is already logged in. Pin("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
     }
 
     @Override
@@ -46,12 +47,12 @@ public class Ready implements State{
 
     @Override
     public void BelowMinBalance() {
-
+        //This method is not reachable for READY state
     }
 
     @Override
     public void AboveMinBalance() {
-
+        //This method is not reachable for READY state
     }
 
     @Override
@@ -61,18 +62,18 @@ public class Ready implements State{
 
     @Override
     public void Logout() {
-        mdaEfsm.setState(mdaEfsm.getIdleState());
+        mdaEfsm.changeState(Constants.IDLE);
     }
 
     @Override
     public void Withdraw() {
         mdaEfsm.outputProcessor.MakeWithdraw();
-        mdaEfsm.setState(mdaEfsm.getS1State());
+        mdaEfsm.changeState(Constants.S1);
     }
 
     @Override
     public void WithdrawBelowMinBalance() {
-
+        //This method is not reachable for READY state
     }
 
     @Override
@@ -82,7 +83,7 @@ public class Ready implements State{
 
     @Override
     public void Lock() {
-        mdaEfsm.setState(mdaEfsm.getLockedState());
+        mdaEfsm.changeState(Constants.LOCKED);
     }
 
     @Override
@@ -92,26 +93,26 @@ public class Ready implements State{
 
     @Override
     public void Unlock() {
-
+        System.out.println("\nWARNING: Account is already unlocked. Unlock("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
     }
 
     @Override
     public void IncorrectUnlock() {
-
+        System.out.println("\nWARNING: Account is already unlocked. Unlock("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
     }
 
     @Override
     public void Suspend() {
-        mdaEfsm.setState(mdaEfsm.getSuspendedState());
+        mdaEfsm.changeState(Constants.SUSPENDED);
     }
 
     @Override
     public void Activate() {
-
+        System.out.println("\nWARNING: Account is not suspended. Activate("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
     }
 
     @Override
     public void Close() {
-
+        System.out.println("\nWARNING: Account is not suspended. Close("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
     }
 }

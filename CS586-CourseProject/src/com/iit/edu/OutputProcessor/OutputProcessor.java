@@ -11,8 +11,8 @@ import com.iit.edu.OutputProcessor.Strategy.StoreData.*;
 
 
 public class OutputProcessor {
-    DataStore dataStore = null;
-    AbstractFactory abstractFactory = null;
+    DataStore dataStore;
+    AbstractFactory abstractFactory;
 
     public OutputProcessor(DataStore dataStore,AbstractFactory abstractFactory) {
         this.dataStore = dataStore;

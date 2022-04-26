@@ -4,6 +4,8 @@ import com.iit.edu.AbstractFactory.ConcreteFactory1;
 import com.iit.edu.AbstractFactory.ConcreteFactory2;
 import com.iit.edu.Accounts.Account1;
 import com.iit.edu.Accounts.Account2;
+import com.iit.edu.DataStore.DataStore1;
+import com.iit.edu.DataStore.DataStore2;
 import com.iit.edu.MDAEFSM.MDAEFSM;
 import com.iit.edu.OutputProcessor.OutputProcessor;
 import java.io.BufferedReader;
@@ -21,13 +23,12 @@ public class Driver {
         System.out.println("--------------------------------------------------------------------------");
         System.out.println("1. ACCOUNT 1");
         System.out.println("2. ACCOUNT 2");
-        System.out.println("Q. Quit Driver");
     }
 
     public static void main(String[] args) throws IOException, NumberFormatException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); //Initialize reader for input
 
-        String input = Constants.START;
+        String input="START";
         AccountTypeMessage();
 
         while (!input.equalsIgnoreCase("Q")) {         //Iterative call to while loop until exit (Option Q)
@@ -35,14 +36,13 @@ public class Driver {
             System.out.println("Enter your choice>>>>");
             input = reader.readLine();
 
-            try {
-                switch (input) {
+            switch (input) {
                     //Method handler for Account Open
                     case "1": {
                         ConcreteFactory1 concreteFactory1 = new ConcreteFactory1();
                         OutputProcessor outputProcessor = new OutputProcessor(concreteFactory1.getDataStore(), concreteFactory1);
                         MDAEFSM mdaEfsm = new MDAEFSM(concreteFactory1, outputProcessor);
-                        Account1 account1 = new Account1(mdaEfsm, concreteFactory1.getDataStore());
+                        Account1 account1 = new Account1(mdaEfsm, (DataStore1) concreteFactory1.getDataStore());
 
                         System.out.println("--------------------------------------------------------------------------");
                         System.out.println("                            ACCOUNT1 CLASS MENU                           ");
@@ -61,111 +61,116 @@ public class Driver {
 
                         while (!input.equalsIgnoreCase("Q")) {         //Iterative call to while loop until exit (Option Q)
 
-                            System.out.println("Select Operation:0-open,1-login,2-pin,3-deposit,4-withdraw,5-balance,6-lock,7-unlock,8-logout");
+                            try {
+                                System.out.println("Select Operation:0-open,1-login,2-pin,3-deposit,4-withdraw,5-balance,6-lock,7-unlock,8-logout");
 
-                            input = reader.readLine();
+                                input = reader.readLine();
 
-                            switch (input.toUpperCase()) {
-                                case "0": {
-                                    System.out.println("Operation: open(int p, int y, int a)");
-                                    System.out.println("Enter User Identification Number (y):");
-                                    int userIdentificationNumber = Integer.parseInt(reader.readLine());
+                                switch (input.toUpperCase()) {
+                                    case "0": {
+                                        System.out.println("Operation: open(int p, int y, int a)");
+                                        System.out.println("Enter User Identification Number (y):");
+                                        int userIdentificationNumber = Integer.parseInt(reader.readLine());
 
-                                    System.out.println("Enter PIN (p):");
-                                    int pin = Integer.parseInt(reader.readLine());
+                                        System.out.println("Enter PIN (p):");
+                                        int pin = Integer.parseInt(reader.readLine());
 
-                                    System.out.println("Enter Opening Balance (a):");
-                                    int openingBalance = Integer.parseInt(reader.readLine());
+                                        System.out.println("Enter Opening Balance (a):");
+                                        int openingBalance = Integer.parseInt(reader.readLine());
 
-                                    account1.open(pin, userIdentificationNumber, openingBalance);
+                                        account1.open(pin, userIdentificationNumber, openingBalance);
 
-                                    break;
+                                        break;
+                                    }
+
+                                    case "1": {
+                                        System.out.println("Operation: login(int y)");
+                                        System.out.println("Enter User Identification Number to login (y):");
+                                        int userIdentificationNumber = Integer.parseInt(reader.readLine());
+
+                                        account1.login(userIdentificationNumber);
+
+                                        break;
+                                    }
+
+                                    case "2": {
+                                        System.out.println("Operation: pin(int x)");
+                                        System.out.println("Enter PIN (x):");
+                                        int pin = Integer.parseInt(reader.readLine());
+
+                                        account1.pin(pin);
+
+                                        break;
+                                    }
+
+                                    case "3": {
+                                        System.out.println("Operation: deposit(int d)");
+                                        System.out.println("Enter amount to be deposited (d):");
+                                        int deposit = Integer.parseInt(reader.readLine());
+
+                                        account1.deposit(deposit);
+
+                                        break;
+                                    }
+
+                                    case "4": {
+                                        System.out.println("Operation: withdraw(int w)");
+                                        System.out.println("Enter amount to be withdrawn (w):");
+                                        int withdraw = Integer.parseInt(reader.readLine());
+
+                                        account1.withdraw(withdraw);
+
+                                        break;
+                                    }
+
+                                    case "5": {
+                                        System.out.println("Operation: balance()");
+                                        System.out.println("Balance Enquiry:");
+                                        account1.balance();
+                                        break;
+                                    }
+
+                                    case "6": {
+                                        System.out.println("Operation: lock(int x)");
+                                        System.out.println("Enter PIN to lock account (x):");
+                                        int pin = Integer.parseInt(reader.readLine());
+
+                                        account1.lock(pin);
+
+                                        break;
+                                    }
+
+                                    case "7": {
+                                        System.out.println("Operation: unlock(int x)");
+                                        System.out.println("Enter PIN to unlock account (x):");
+                                        int pin = Integer.parseInt(reader.readLine());
+
+                                        account1.unlock(pin);
+
+                                        break;
+                                    }
+
+                                    case "8": {
+                                        System.out.println("Operation: logout()");
+                                        System.out.println("Logout of Account:");
+                                        account1.logout();
+                                        break;
+                                    }
+
+                                    case "Q" :
+                                    {
+                                        System.out.println("Exiting Account Operations");
+                                        System.exit(0);
+                                    }
+
+                                    default: {
+                                        System.out.println("Invalid Choice for Account 1. Please choose again!!!!");
+                                        break;
+                                    }
                                 }
-
-                                case "1": {
-                                    System.out.println("Operation: login(int y)");
-                                    System.out.println("Enter User Identification Number to login (y):");
-                                    int userIdentificationNumber = Integer.parseInt(reader.readLine());
-
-                                    account1.login(userIdentificationNumber);
-
-                                    break;
-                                }
-
-                                case "2": {
-                                    System.out.println("Operation: pin(int x)");
-                                    System.out.println("Enter PIN (x):");
-                                    int pin = Integer.parseInt(reader.readLine());
-
-                                    account1.pin(pin);
-
-                                    break;
-                                }
-
-                                case "3": {
-                                    System.out.println("Operation: deposit(int d)");
-                                    System.out.println("Enter amount to be deposited (d):");
-                                    int deposit = Integer.parseInt(reader.readLine());
-
-                                    account1.deposit(deposit);
-
-                                    break;
-                                }
-
-                                case "4": {
-                                    System.out.println("Operation: withdraw(int w)");
-                                    System.out.println("Enter amount to be withdrawn (w):");
-                                    int withdraw = Integer.parseInt(reader.readLine());
-
-                                    account1.withdraw(withdraw);
-
-                                    break;
-                                }
-
-                                case "5": {
-                                    System.out.println("Operation: balance()");
-                                    System.out.println("Balance Enquiry:");
-                                    account1.balance();
-                                    break;
-                                }
-
-                                case "6": {
-                                    System.out.println("Operation: lock(int x)");
-                                    System.out.println("Enter PIN to lock account (x):");
-                                    int pin = Integer.parseInt(reader.readLine());
-
-                                    account1.lock(pin);
-
-                                    break;
-                                }
-
-                                case "7": {
-                                    System.out.println("Operation: unlock(int x)");
-                                    System.out.println("Enter PIN to unlock account (x):");
-                                    int pin = Integer.parseInt(reader.readLine());
-
-                                    account1.unlock(pin);
-
-                                    break;
-                                }
-
-                                case "8": {
-                                    System.out.println("Operation: logout()");
-                                    System.out.println("Logout of Account:");
-                                    account1.logout();
-                                    break;
-                                }
-
-                                case "Q" :
-                                {
-                                    System.out.println("Exiting Account 1 Operations");
-                                    break;
-                                }
-
-                                default: {
-                                    System.out.println("Invalid Choice for Account 1. Please choose again!!!!");
-                                    break;
-                                }
+                            }
+                            catch (NumberFormatException numberFormatException) {
+                                System.out.println("Invalid input: " + numberFormatException.getMessage());
                             }
                         }
                     }
@@ -174,7 +179,7 @@ public class Driver {
                         ConcreteFactory2 concreteFactory2 = new ConcreteFactory2();
                         OutputProcessor outputProcessor = new OutputProcessor(concreteFactory2.getDataStore(), concreteFactory2);
                         MDAEFSM mdaEfsm = new MDAEFSM(concreteFactory2, outputProcessor);
-                        Account2 account2 = new Account2(mdaEfsm, concreteFactory2.getDataStore());
+                        Account2 account2 = new Account2(mdaEfsm, (DataStore2) concreteFactory2.getDataStore());
 
                         System.out.println("--------------------------------------------------------------------------");
                         System.out.println("                            ACCOUNT2 CLASS MENU                           ");
@@ -193,6 +198,8 @@ public class Driver {
                         System.out.println("--------------------------------------------------------------------------");
 
                         while (!input.equalsIgnoreCase("Q")) {         //Iterative call to while loop until exit (Option Q)
+
+                            try {
 
                             System.out.println("Select Operation:0-OPEN,1-LOGIN,2-PIN,3-DEPOSIT,4-WITHDRAW,5-BALANCE,6-LOGOUT,7-suspend,8-activate,9-close");
 
@@ -292,8 +299,8 @@ public class Driver {
 
                                 case "Q" :
                                 {
-                                    System.out.println("Exiting Account 2 Operations");
-                                    break;
+                                    System.out.println("Exiting Account Operations");
+                                    System.exit(0);
                                 }
 
                                 default: {
@@ -301,23 +308,18 @@ public class Driver {
                                     break;
                                 }
                             }
+                            }
+                            catch (NumberFormatException numberFormatException) {
+                                System.out.println("Invalid input: " + numberFormatException.getMessage());
+                            }
                         }
                     }
 
-                    case "Q" :
-                    {
-                        System.out.println("Exiting Test Driver. Please run again!!!!");
-                        break;
-                    }
-
                     default: {
-                        System.out.println("Exiting Test Driver. Please run again!!!!");
+                        System.out.println("Invalid choice for Account Type. Please choose again!!!!");
                         break;
                     }
                 }
-            } catch (NumberFormatException numberFormatException) {
-                System.out.println("Invalid input: " + numberFormatException.getMessage());
             }
         }
     }
-}

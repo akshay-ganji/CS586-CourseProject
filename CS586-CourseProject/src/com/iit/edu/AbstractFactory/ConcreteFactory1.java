@@ -11,26 +11,20 @@ import com.iit.edu.OutputProcessor.Strategy.StoreData.StoreData;
 import com.iit.edu.OutputProcessor.Strategy.StoreData.StoreData1;
 
 public class ConcreteFactory1 implements AbstractFactory{
-    DataStore dataStore1 = new DataStore1();
-    StoreData storeData1 = new StoreData1();
-    PromptForPin promptForPin1 = new PromptForPin();
-    IncorrectIdMsg incorrectIdMsg1 = new IncorrectIdMsg();
-    IncorrectPinMsg incorrectPinMsg1 = new IncorrectPinMsg();
-    TooManyAttemptsMsg tooManyAttemptsMsg1 = new TooManyAttemptsMsg();
-    DisplayMenu displayMenu1 = new DisplayMenu1();
-    DisplayBalance displayBalance1 = new DisplayBalance1();
-    MakeDeposit makeDeposit1 = new MakeDeposit1();
-    MakeWithdraw makeWithdraw1 = new MakeWithdraw1();
-    Penalty penalty1 = new Penalty();
-    IncorrectLockMsg incorrectLockMsg1 = new IncorrectLockMsg();
-    IncorrectUnlockMsg incorrectUnlockMsg1 = new IncorrectUnlockMsg();
-    NoFundsMsg noFundsMsg1 = new NoFundsMsg();
-
-
-    @Override
-    public DataStore CreateDataStore() {
-        return this.dataStore1;
-    }
+    DataStore1 dataStore1 = new DataStore1();                           //Create DataStore1 object for Account1
+    StoreData storeData1 = new StoreData1();                            //Create StoreData1 object for Account1
+    PromptForPin promptForPin1 = new PromptForPin();                    //Create PromptForPin object for Account1
+    IncorrectIdMsg incorrectIdMsg1 = new IncorrectIdMsg();              //Create IncorrectIdMsg object for Account1
+    IncorrectPinMsg incorrectPinMsg1 = new IncorrectPinMsg();           //Create IncorrectPinMsg object for Account1
+    TooManyAttemptsMsg tooManyAttemptsMsg1 = new TooManyAttemptsMsg();  //Create TooManyAttemptsMsg object for Account1
+    DisplayMenu displayMenu1 = new DisplayMenu1();                      //Create DisplayMenu1 object for Account1
+    DisplayBalance displayBalance1 = new DisplayBalance1();             //Create DisplayBalance1 object for Account1
+    MakeDeposit makeDeposit1 = new MakeDeposit1();                      //Create MakeDeposit1 object for Account1
+    MakeWithdraw makeWithdraw1 = new MakeWithdraw1();                   //Create MakeWithdraw1 object for Account1
+    Penalty penalty1 = new Penalty();                                   //Create Penalty object for Account1
+    IncorrectLockMsg incorrectLockMsg1 = new IncorrectLockMsg();        //Create IncorrectLockMsg object for Account1
+    IncorrectUnlockMsg incorrectUnlockMsg1 = new IncorrectUnlockMsg();  //Create IncorrectUnlockMsg object for Account1
+    NoFundsMsg noFundsMsg1 = new NoFundsMsg();                          //Create NoFundsMsg object for Account1
 
     @Override
     public StoreData CreateStoreData() {
@@ -93,6 +87,7 @@ public class ConcreteFactory1 implements AbstractFactory{
         return this.noFundsMsg1;
     }
 
+    @Override
     public DataStore getDataStore() {
         return this.dataStore1;
     }

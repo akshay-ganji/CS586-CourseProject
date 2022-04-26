@@ -15,22 +15,17 @@ import com.iit.edu.OutputProcessor.Strategy.StoreData.StoreData;
 import com.iit.edu.OutputProcessor.Strategy.StoreData.StoreData2;
 
 public class ConcreteFactory2 implements AbstractFactory{
-    DataStore dataStore2 = new DataStore2();
-    StoreData storeData2 = new StoreData2();
-    PromptForPin promptForPin2 = new PromptForPin();
-    IncorrectIdMsg incorrectIdMsg2 = new IncorrectIdMsg();
-    IncorrectPinMsg incorrectPinMsg2 = new IncorrectPinMsg();
-    TooManyAttemptsMsg tooManyAttemptsMsg2 = new TooManyAttemptsMsg();
-    DisplayMenu displayMenu2 = new DisplayMenu2();
-    DisplayBalance displayBalance2 = new DisplayBalance2();
-    MakeDeposit makeDeposit2 = new MakeDeposit2();
-    MakeWithdraw makeWithdraw2 = new MakeWithdraw2();
-    NoFundsMsg noFundsMsg2 = new NoFundsMsg();
-
-    @Override
-    public DataStore CreateDataStore() {
-        return this.dataStore2;
-    }
+    DataStore2 dataStore2 = new DataStore2();                           //Create DataStore2 object for Account2
+    StoreData storeData2 = new StoreData2();                            //Create StoreData2 object for Account2
+    PromptForPin promptForPin2 = new PromptForPin();                    //Create PromptForPin object for Account2
+    IncorrectIdMsg incorrectIdMsg2 = new IncorrectIdMsg();              //Create IncorrectIdMsg object for Account2
+    IncorrectPinMsg incorrectPinMsg2 = new IncorrectPinMsg();           //Create IncorrectPinMsg object for Account2
+    TooManyAttemptsMsg tooManyAttemptsMsg2 = new TooManyAttemptsMsg();  //Create TooManyAttemptsMsg object for Account2
+    DisplayMenu displayMenu2 = new DisplayMenu2();                      //Create DisplayMenu2 object for Account2
+    DisplayBalance displayBalance2 = new DisplayBalance2();             //Create DisplayBalance2 object for Account2
+    MakeDeposit makeDeposit2 = new MakeDeposit2();                      //Create MakeDeposit2 object for Account2
+    MakeWithdraw makeWithdraw2 = new MakeWithdraw2();                   //Create MakeWithdraw2 object for Account2
+    NoFundsMsg noFundsMsg2 = new NoFundsMsg();                          //Create NoFundsMsg object for Account2
 
     @Override
     public StoreData CreateStoreData() {
@@ -97,6 +92,7 @@ public class ConcreteFactory2 implements AbstractFactory{
         return this.noFundsMsg2;
     }
 
+    @Override
     public DataStore getDataStore() {
         return this.dataStore2;
     }
