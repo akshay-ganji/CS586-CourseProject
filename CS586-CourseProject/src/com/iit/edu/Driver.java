@@ -4,10 +4,6 @@ import com.iit.edu.AbstractFactory.ConcreteFactory1;
 import com.iit.edu.AbstractFactory.ConcreteFactory2;
 import com.iit.edu.Accounts.Account1;
 import com.iit.edu.Accounts.Account2;
-import com.iit.edu.DataStore.DataStore1;
-import com.iit.edu.DataStore.DataStore2;
-import com.iit.edu.MDAEFSM.MDAEFSM;
-import com.iit.edu.OutputProcessor.OutputProcessor;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -40,9 +36,7 @@ public class Driver {
                     //Method handler for Account Open
                     case "1": {
                         ConcreteFactory1 concreteFactory1 = new ConcreteFactory1();
-                        OutputProcessor outputProcessor = new OutputProcessor(concreteFactory1.getDataStore(), concreteFactory1);
-                        MDAEFSM mdaEfsm = new MDAEFSM(concreteFactory1, outputProcessor);
-                        Account1 account1 = new Account1(mdaEfsm, (DataStore1) concreteFactory1.getDataStore());
+                        Account1 account1 = new Account1(concreteFactory1);
 
                         System.out.println("--------------------------------------------------------------------------");
                         System.out.println("                            ACCOUNT1 CLASS MENU                           ");
@@ -177,9 +171,7 @@ public class Driver {
 
                     case "2": {
                         ConcreteFactory2 concreteFactory2 = new ConcreteFactory2();
-                        OutputProcessor outputProcessor = new OutputProcessor(concreteFactory2.getDataStore(), concreteFactory2);
-                        MDAEFSM mdaEfsm = new MDAEFSM(concreteFactory2, outputProcessor);
-                        Account2 account2 = new Account2(mdaEfsm, (DataStore2) concreteFactory2.getDataStore());
+                        Account2 account2 = new Account2(concreteFactory2);
 
                         System.out.println("--------------------------------------------------------------------------");
                         System.out.println("                            ACCOUNT2 CLASS MENU                           ");

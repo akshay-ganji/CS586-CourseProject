@@ -1,29 +1,33 @@
 package com.iit.edu.Accounts;
 
+import com.iit.edu.AbstractFactory.AbstractFactory;
 import com.iit.edu.Constants;
 import com.iit.edu.MDAEFSM.MDAEFSM;
 import com.iit.edu.DataStore.*;
+import com.iit.edu.OutputProcessor.OutputProcessor;
 
 public class Account1 {
 
     MDAEFSM mdaEfsm ;
-    DataStore1 dataStore1;                                      
+    DataStore dataStore;
+    OutputProcessor outputProcessor;
 
-    public Account1(MDAEFSM mdaEfsm, DataStore1 dataStore1) {   
-        this.mdaEfsm = mdaEfsm;
-        this.dataStore1 = dataStore1;
+    public Account1(AbstractFactory abstractFactory) {
+        this.outputProcessor = new OutputProcessor(abstractFactory.getDataStore(), abstractFactory);
+        this.mdaEfsm = new MDAEFSM(abstractFactory, outputProcessor);
+        this.dataStore = abstractFactory.getDataStore();
     }
 
-    public void open(int p, int y, int a) {                     
-        dataStore1.temp_p = p;
-        dataStore1.temp_y = y;
-        dataStore1.temp_a = a;
+    public void open(int p, int y, int a) {
+        ((DataStore1) dataStore).temp_p = p;
+        ((DataStore1) dataStore).temp_y = y;
+        ((DataStore1) dataStore).temp_a = a;
         mdaEfsm.Open();                                         
         mdaEfsm.getCurrentState();
     }
 
     public void login(int y) {                                  
-        if (y == dataStore1.getId()) {
+        if (y == ((DataStore1) dataStore).getId()) {
             mdaEfsm.Login();                                    
         } else {
             mdaEfsm.IncorrectLogin();                           
@@ -32,8 +36,8 @@ public class Account1 {
     }
 
     public void pin(int x) {                                    
-        if (x ==  dataStore1.getPin()) {
-            if ( dataStore1.getBalance() > 100)
+        if (x ==  ((DataStore1) dataStore).getPin()) {
+            if ( ((DataStore1) dataStore).getBalance() > 100)
                 mdaEfsm.CorrectPinAboveMin();
             else
                 mdaEfsm.CorrectPinBelowMin();
@@ -44,10 +48,10 @@ public class Account1 {
     }
 
     public void deposit(int d) {                                
-        dataStore1.temp_d = d;
+        ((DataStore1) dataStore).temp_d = d;
         mdaEfsm.Deposit();
 
-        if (dataStore1.getBalance() > Constants.MIN_ACCOUNT1_BALANCE) {
+        if (((DataStore1) dataStore).getBalance() > Constants.MIN_ACCOUNT1_BALANCE) {
             mdaEfsm.AboveMinBalance();
         } else {
             mdaEfsm.BelowMinBalance();
@@ -66,9 +70,9 @@ public class Account1 {
     }
 
     public void withdraw(int w) {
-        dataStore1.temp_w = w;
+        ((DataStore1) dataStore).temp_w = w;
         mdaEfsm.Withdraw();
-        if (dataStore1.getBalance() > Constants.MIN_ACCOUNT1_BALANCE) {
+        if (((DataStore1) dataStore).getBalance() > Constants.MIN_ACCOUNT1_BALANCE) {
             mdaEfsm.AboveMinBalance();
         } else {
             mdaEfsm.WithdrawBelowMinBalance();
@@ -77,7 +81,7 @@ public class Account1 {
     }
 
     public void lock(int x) {
-        if (x == dataStore1.getPin()) {
+        if (x == ((DataStore1) dataStore).getPin()) {
             mdaEfsm.Lock();
         } else {
             mdaEfsm.IncorrectLock();
@@ -86,10 +90,10 @@ public class Account1 {
     }
 
     public void unlock(int x) {
-        if (x == dataStore1.getPin()) {
+        if (x == ((DataStore1) dataStore).getPin()) {
             mdaEfsm.Unlock();
 
-            if ( dataStore1.getBalance() > Constants.MIN_ACCOUNT1_BALANCE) {
+            if (((DataStore1) dataStore).getBalance() > Constants.MIN_ACCOUNT1_BALANCE) {
                 mdaEfsm.AboveMinBalance();
             } else {
                 mdaEfsm.BelowMinBalance();
