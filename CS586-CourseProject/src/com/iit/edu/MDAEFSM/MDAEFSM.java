@@ -9,8 +9,8 @@ import com.iit.edu.OutputProcessor.OutputProcessor;
 public class MDAEFSM {
     AbstractFactory abstractFactory = null;
     public OutputProcessor outputProcessor = null;
-    public State stateObject = null;
-    public State[] stateList = new State[8];
+    State stateObject = null;
+    State[] stateList = new State[9];
 
     public int attempts;
 
@@ -26,6 +26,7 @@ public class MDAEFSM {
         stateList[5] = new S1(this);
         stateList[6] = new Locked(this);
         stateList[7] = new Suspended(this);
+        stateList[8] = new Closed(this);
         stateObject = stateList[0];
     }
 

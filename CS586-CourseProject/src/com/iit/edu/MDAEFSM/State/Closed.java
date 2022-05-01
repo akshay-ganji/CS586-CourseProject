@@ -3,28 +3,26 @@ package com.iit.edu.MDAEFSM.State;
 import com.iit.edu.Constants;
 import com.iit.edu.MDAEFSM.MDAEFSM;
 
-public class Suspended implements State{
+public class Closed implements State{
+    MDAEFSM mdaEfsm;                                                  //Create MDAEFSM Object needed for Suspended State operations
 
-    MDAEFSM mdaEfsm;                                                //Create MDAEFSM Object needed for Suspended State operations
-
-    public Suspended(MDAEFSM mdaEfsm) {
+    public Closed(MDAEFSM mdaEfsm) {
         this.mdaEfsm = mdaEfsm;
-    }   //Constructor to initialize MDAEFSM
-
+    }       //Constructor to initialize MDAEFSM
 
     @Override
     public void Open() {
-        System.out.println("\nWARNING: Account is already opened. Open("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
+        System.out.println(Constants.CLOSED_DEAFUALT_MESSAGE);
     }
 
     @Override
     public void Login() {
-        System.out.println("\nWARNING: Account is already logged in. Login("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
+        System.out.println(Constants.CLOSED_DEAFUALT_MESSAGE);
     }
 
     @Override
     public void IncorrectLogin() {
-        System.out.println("\nWARNING: Account is already logged in. Login("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
+        System.out.println(Constants.CLOSED_DEAFUALT_MESSAGE);
     }
 
     @Override
@@ -34,17 +32,17 @@ public class Suspended implements State{
 
     @Override
     public void CorrectPinAboveMin() {
-        System.out.println("\nWARNING: Account is already logged in. Pin("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
+        System.out.println(Constants.CLOSED_DEAFUALT_MESSAGE);
     }
 
     @Override
     public void IncorrectPin(int max) {
-        System.out.println("\nWARNING: Account is already logged in. Pin("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
-    }   
+        System.out.println(Constants.CLOSED_DEAFUALT_MESSAGE);
+    }
 
     @Override
     public void Deposit() {
-        System.out.println("\nWARNING: Account is suspended. Deposit("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
+        System.out.println(Constants.CLOSED_DEAFUALT_MESSAGE);
     }
 
     @Override
@@ -59,17 +57,17 @@ public class Suspended implements State{
 
     @Override
     public void Balance() {
-        mdaEfsm.outputProcessor.DisplayBalance();
+        System.out.println(Constants.CLOSED_DEAFUALT_MESSAGE);
     }
 
     @Override
     public void Logout() {
-        System.out.println("\nWARNING: Account is suspended. Logout("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
+        System.out.println(Constants.CLOSED_DEAFUALT_MESSAGE);
     }
 
     @Override
     public void Withdraw() {
-        System.out.println("\nWARNING: Account is suspended. Withdraw("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
+        System.out.println(Constants.CLOSED_DEAFUALT_MESSAGE);
     }
 
     @Override
@@ -104,17 +102,16 @@ public class Suspended implements State{
 
     @Override
     public void Suspend() {
-        System.out.println("\nWARNING: Account is already suspended. Suspend("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
+        System.out.println(Constants.CLOSED_DEAFUALT_MESSAGE);
     }
 
     @Override
     public void Activate() {
-        mdaEfsm.changeState(Constants.READY);
+        System.out.println(Constants.CLOSED_DEAFUALT_MESSAGE);
     }
 
     @Override
     public void Close() {
-        System.out.println("Account 2 has been terminated permanently");
-        mdaEfsm.changeState(Constants.CLOSED);
+        System.out.println(Constants.CLOSED_DEAFUALT_MESSAGE);
     }
 }

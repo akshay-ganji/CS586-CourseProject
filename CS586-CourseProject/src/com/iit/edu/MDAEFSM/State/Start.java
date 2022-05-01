@@ -5,7 +5,7 @@ import com.iit.edu.MDAEFSM.MDAEFSM;
 
 public class Start implements State {
 
-    MDAEFSM mdaEfsm;                                                 //Create MDAEFSM Object needed for Start State operations
+    MDAEFSM mdaEfsm;                                           //Create MDAEFSM Object needed for Start State operations
 
     public Start(MDAEFSM mdaEfsm) {
         this.mdaEfsm = mdaEfsm;

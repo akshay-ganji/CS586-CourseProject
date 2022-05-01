@@ -14,5 +14,7 @@ public class Constants {
     public static final int S1 = 5;
     public static final int LOCKED = 6;
     public static final int SUSPENDED = 7;
+    public static final int CLOSED = 8;
     public static final String OPERATION_NOT_SUPPORTED = "Operation not supported";
+    public static final String CLOSED_DEAFUALT_MESSAGE = "WARNING: Account2 cannot be accessed anymore. Restart to continue";
 }
