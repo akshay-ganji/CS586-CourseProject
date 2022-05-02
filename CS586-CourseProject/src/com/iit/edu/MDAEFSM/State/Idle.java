@@ -1,13 +1,8 @@
 package com.iit.edu.MDAEFSM.State;
 
 import com.iit.edu.Constants;
-import com.iit.edu.MDAEFSM.MDAEFSM;
 
-public class Idle implements State{
-    MDAEFSM mdaEfsm;                                            //Create MDAEFSM Object needed for Idle State operations
-    public Idle(MDAEFSM mdaEfsm) {
-        this.mdaEfsm = mdaEfsm;
-    }    //Constructor to initialize MDAEFSM
+public class Idle extends State{
 
     @Override
     public void Open() {
@@ -17,13 +12,13 @@ public class Idle implements State{
     @Override
     public void Login() {
         mdaEfsm.attempts = 0;
-        mdaEfsm.outputProcessor.PromptForPin();
+        outputProcessor.PromptForPin();
         mdaEfsm.changeState(Constants.CHECKPIN);
     }
 
     @Override
     public void IncorrectLogin() {
-        mdaEfsm.outputProcessor.IncorrectIdMsg();
+        outputProcessor.IncorrectIdMsg();
     }
 
     @Override
@@ -88,7 +83,7 @@ public class Idle implements State{
 
     @Override
     public void IncorrectLock() {
-        //This method is not reachable for IDLE state
+        System.out.println("\nWARNING: Login needed. Lock("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
     }
 
     @Override
@@ -98,7 +93,7 @@ public class Idle implements State{
 
     @Override
     public void IncorrectUnlock() {
-        //This method is not reachable for IDLE state
+        System.out.println("\nWARNING: Login needed. Unlock("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
     }
 
     @Override

@@ -1,13 +1,8 @@
 package com.iit.edu.MDAEFSM.State;
 
 import com.iit.edu.Constants;
-import com.iit.edu.MDAEFSM.MDAEFSM;
 
-public class OverDrawn implements State{
-    MDAEFSM mdaEfsm;                                                //Create MDAEFSM Object needed for Overdrawn State operations
-    public OverDrawn(MDAEFSM mdaEfsm) {
-        this.mdaEfsm = mdaEfsm;
-    }   //Constructor to initialize MDAEFSM
+public class OverDrawn extends State{
 
     @Override
     public void Open() {
@@ -41,7 +36,7 @@ public class OverDrawn implements State{
 
     @Override
     public void Deposit() {
-      mdaEfsm.outputProcessor.MakeDeposit();
+      outputProcessor.MakeDeposit();
       mdaEfsm.changeState(Constants.S1);
     }
 
@@ -57,7 +52,7 @@ public class OverDrawn implements State{
 
     @Override
     public void Balance() {
-        mdaEfsm.outputProcessor.DisplayBalance();
+        outputProcessor.DisplayBalance();
     }
 
     @Override
@@ -67,7 +62,7 @@ public class OverDrawn implements State{
 
     @Override
     public void Withdraw() {
-        mdaEfsm.outputProcessor.NoFundsMsg();
+        outputProcessor.NoFundsMsg();
     }
 
     @Override
@@ -87,7 +82,7 @@ public class OverDrawn implements State{
 
     @Override
     public void IncorrectLock() {
-        mdaEfsm.outputProcessor.IncorrectLockMsg();
+        outputProcessor.IncorrectLockMsg();
     }
 
     @Override

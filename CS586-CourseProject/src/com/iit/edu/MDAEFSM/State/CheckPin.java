@@ -1,13 +1,8 @@
 package com.iit.edu.MDAEFSM.State;
 
 import com.iit.edu.Constants;
-import com.iit.edu.MDAEFSM.MDAEFSM;
 
-public class CheckPin implements State {
-    MDAEFSM mdaEfsm;                                                //Create MDAEFSM Object needed for CheckPin State operations
-    public CheckPin(MDAEFSM mdaEfsm) {
-        this.mdaEfsm = mdaEfsm;
-    }   //Constructor to initialize MDAEFSM
+public class CheckPin extends State {
 
     @Override
     public void Open() {
@@ -26,13 +21,13 @@ public class CheckPin implements State {
 
     @Override
     public void CorrectPinBelowMin() {
-        mdaEfsm.outputProcessor.DisplayMenu();
+        outputProcessor.DisplayMenu();
         mdaEfsm.changeState(Constants.OVERDRAWN);
     }
 
     @Override
     public void CorrectPinAboveMin() {
-        mdaEfsm.outputProcessor.DisplayMenu();
+        outputProcessor.DisplayMenu();
         mdaEfsm.changeState(Constants.READY);
 
     }
@@ -42,10 +37,10 @@ public class CheckPin implements State {
         if(mdaEfsm.attempts < max)
         {
             mdaEfsm.attempts ++;
-            mdaEfsm.outputProcessor.IncorrectPinMsg();
+            outputProcessor.IncorrectPinMsg();
         }else if(mdaEfsm.attempts==max){
-            mdaEfsm.outputProcessor.IncorrectPinMsg();
-            mdaEfsm.outputProcessor.TooManyAttemptsMsg();
+            outputProcessor.IncorrectPinMsg();
+            outputProcessor.TooManyAttemptsMsg();
             mdaEfsm.changeState(Constants.IDLE);
         }
     }

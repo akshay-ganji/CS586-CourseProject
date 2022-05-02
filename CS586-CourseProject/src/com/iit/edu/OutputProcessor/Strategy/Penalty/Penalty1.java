@@ -1,10 +1,12 @@
-package com.iit.edu.OutputProcessor.Strategy;
+package com.iit.edu.OutputProcessor.Strategy.Penalty;
 
 import com.iit.edu.Constants;
 import com.iit.edu.DataStore.DataStore;
 import com.iit.edu.DataStore.DataStore1;
 
-public class Penalty {
+public class Penalty1 extends Penalty{
+
+    @Override
     public void Penalty(DataStore ds)
     {
         ((DataStore1)ds).applyPenalty();

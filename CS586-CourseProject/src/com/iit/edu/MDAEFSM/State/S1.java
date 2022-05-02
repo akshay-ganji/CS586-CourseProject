@@ -1,15 +1,8 @@
 package com.iit.edu.MDAEFSM.State;
 
 import com.iit.edu.Constants;
-import com.iit.edu.MDAEFSM.MDAEFSM;
 
-public class S1 implements State{
-
-    MDAEFSM mdaEfsm;                                               //Create MDAEFSM Object needed for S1 State operations
-
-    public S1(MDAEFSM mdaEfsm) {
-        this.mdaEfsm = mdaEfsm;
-    }       //Constructor to initialize MDAEFSM
+public class S1 extends State{
 
     @Override
     public void Open() {
@@ -43,7 +36,7 @@ public class S1 implements State{
 
     @Override
     public void Deposit() {
-        mdaEfsm.outputProcessor.MakeDeposit();
+        outputProcessor.MakeDeposit();
     }
 
     @Override
@@ -73,7 +66,7 @@ public class S1 implements State{
 
     @Override
     public void WithdrawBelowMinBalance() {
-        mdaEfsm.outputProcessor.Penalty();      //ACCOUNT 1
+        outputProcessor.Penalty();      //ACCOUNT 1
         mdaEfsm.changeState(Constants.OVERDRAWN);
     }
 

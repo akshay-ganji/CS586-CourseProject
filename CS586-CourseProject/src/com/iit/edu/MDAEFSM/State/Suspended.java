@@ -1,16 +1,8 @@
 package com.iit.edu.MDAEFSM.State;
 
 import com.iit.edu.Constants;
-import com.iit.edu.MDAEFSM.MDAEFSM;
 
-public class Suspended implements State{
-
-    MDAEFSM mdaEfsm;                                                //Create MDAEFSM Object needed for Suspended State operations
-
-    public Suspended(MDAEFSM mdaEfsm) {
-        this.mdaEfsm = mdaEfsm;
-    }   //Constructor to initialize MDAEFSM
-
+public class Suspended extends State{
 
     @Override
     public void Open() {
@@ -59,7 +51,7 @@ public class Suspended implements State{
 
     @Override
     public void Balance() {
-        mdaEfsm.outputProcessor.DisplayBalance();
+        outputProcessor.DisplayBalance();
     }
 
     @Override

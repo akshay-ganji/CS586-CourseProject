@@ -10,11 +10,11 @@ public class Account1 {
 
     MDAEFSM mdaEfsm ;
     DataStore dataStore;
-    OutputProcessor outputProcessor;
+    OutputProcessor outputProcessor = new OutputProcessor();
 
     public Account1(AbstractFactory abstractFactory) {
-        this.outputProcessor = new OutputProcessor(abstractFactory.getDataStore(), abstractFactory);
-        this.mdaEfsm = new MDAEFSM(abstractFactory, outputProcessor);
+        outputProcessor.initializeOutputProcessor(abstractFactory);
+        this.mdaEfsm = new MDAEFSM(outputProcessor);
         this.dataStore = abstractFactory.getDataStore();
     }
 

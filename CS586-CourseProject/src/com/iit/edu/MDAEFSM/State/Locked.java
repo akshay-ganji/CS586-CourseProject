@@ -1,14 +1,8 @@
 package com.iit.edu.MDAEFSM.State;
 
 import com.iit.edu.Constants;
-import com.iit.edu.MDAEFSM.MDAEFSM;
 
-public class Locked implements State{
-    MDAEFSM mdaEfsm;                                            //Create MDAEFSM Object needed for Locked State operations
-    public Locked(MDAEFSM mdaEfsm) {
-        this.mdaEfsm = mdaEfsm;
-    }  //Constructor to initialize MDAEFSM
-
+public class Locked extends State{
     @Override
     public void Open() {
         System.out.println("\nWARNING: Account is locked. Open("+ Constants.OPERATION_NOT_SUPPORTED+ ")!!!");
@@ -96,7 +90,7 @@ public class Locked implements State{
 
     @Override
     public void IncorrectUnlock() {
-        mdaEfsm.outputProcessor.IncorrectUnlockMsg();
+        outputProcessor.IncorrectUnlockMsg();
     }
 
     @Override

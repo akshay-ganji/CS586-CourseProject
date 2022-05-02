@@ -7,14 +7,13 @@ import com.iit.edu.DataStore.*;
 import com.iit.edu.OutputProcessor.OutputProcessor;
 
 public class Account2 {
-
-    MDAEFSM mdaEfsm ;
-    DataStore dataStore;
-    OutputProcessor outputProcessor;
+    final MDAEFSM mdaEfsm ;
+    final DataStore dataStore;
+    final OutputProcessor outputProcessor = new OutputProcessor();
 
     public Account2(AbstractFactory abstractFactory) {
-        this.outputProcessor = new OutputProcessor(abstractFactory.getDataStore(), abstractFactory);
-        this.mdaEfsm = new MDAEFSM(abstractFactory, outputProcessor);
+        outputProcessor.initializeOutputProcessor(abstractFactory);
+        this.mdaEfsm = new MDAEFSM(outputProcessor);
         this.dataStore = abstractFactory.getDataStore();
     }
 

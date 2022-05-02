@@ -56,7 +56,7 @@ public class Driver {
                         while (!input.equalsIgnoreCase("Q")) {         //Iterative call to while loop until exit (Option Q)
 
                             try {
-                                System.out.println("Select Operation:0-open,1-login,2-pin,3-deposit,4-withdraw,5-balance,6-lock,7-unlock,8-logout");
+                                System.out.println("Select Operation:0-open,1-login,2-pin,3-deposit,4-withdraw,5-balance,6-lock,7-unlock,8-logout,Q-Quit");
 
                                 input = reader.readLine();
 
@@ -193,7 +193,7 @@ public class Driver {
 
                             try {
 
-                            System.out.println("Select Operation:0-OPEN,1-LOGIN,2-PIN,3-DEPOSIT,4-WITHDRAW,5-BALANCE,6-LOGOUT,7-suspend,8-activate,9-close");
+                            System.out.println("Select Operation:0-OPEN,1-LOGIN,2-PIN,3-DEPOSIT,4-WITHDRAW,5-BALANCE,6-LOGOUT,7-suspend,8-activate,9-close,Q-Quit");
 
                             input = reader.readLine();
 

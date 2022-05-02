@@ -1,33 +1,32 @@
 package com.iit.edu.MDAEFSM;
 
-import com.iit.edu.AbstractFactory.AbstractFactory;
+import com.iit.edu.Constants;
 import com.iit.edu.MDAEFSM.State.*;
-
 import com.iit.edu.OutputProcessor.OutputProcessor;
 
 
 public class MDAEFSM {
-    AbstractFactory abstractFactory = null;
-    public OutputProcessor outputProcessor = null;
-    State stateObject = null;
+    State stateObject;
     State[] stateList = new State[9];
 
     public int attempts;
 
-    public MDAEFSM(AbstractFactory abstractFactory, OutputProcessor outputProcessor) {
-        this.abstractFactory = abstractFactory;
-        this.outputProcessor = outputProcessor;
+    public MDAEFSM(OutputProcessor outputProcessor) {
+        stateList[0] = new Start();
+        stateList[1] = new Idle();
+        stateList[2] = new CheckPin();
+        stateList[3] = new OverDrawn();
+        stateList[4] = new Ready();
+        stateList[5] = new S1();
+        stateList[6] = new Locked();
+        stateList[7] = new Suspended();
+        stateList[8] = new Closed();
+        stateObject = stateList[Constants.START];
 
-        stateList[0] = new Start(this);
-        stateList[1] = new Idle(this);
-        stateList[2] = new CheckPin(this);
-        stateList[3] = new OverDrawn(this);
-        stateList[4] = new Ready(this);
-        stateList[5] = new S1(this);
-        stateList[6] = new Locked(this);
-        stateList[7] = new Suspended(this);
-        stateList[8] = new Closed(this);
-        stateObject = stateList[0];
+        for(State state: stateList){
+            state.setOutputProcessor(outputProcessor);
+            state.setMDAEFSM(this);
+        }
     }
 
     public void changeState(int state)

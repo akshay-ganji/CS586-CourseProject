@@ -1,19 +1,12 @@
 package com.iit.edu.MDAEFSM.State;
 
 import com.iit.edu.Constants;
-import com.iit.edu.MDAEFSM.MDAEFSM;
 
-public class Start implements State {
-
-    MDAEFSM mdaEfsm;                                           //Create MDAEFSM Object needed for Start State operations
-
-    public Start(MDAEFSM mdaEfsm) {
-        this.mdaEfsm = mdaEfsm;
-    }       //Constructor to initialize MDAEFSM
+public class Start extends State {
 
     @Override
     public void Open() {
-        mdaEfsm.outputProcessor.StoreData();
+        outputProcessor.StoreData();
         mdaEfsm.changeState(Constants.IDLE);
         System.out.println("Login to continue.....");
     }
