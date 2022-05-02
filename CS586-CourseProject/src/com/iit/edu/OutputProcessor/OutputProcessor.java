@@ -34,7 +34,7 @@ public class OutputProcessor {
     private NoFundsMsg noFundsMsg;
 
     public void initializeOutputProcessor(AbstractFactory abstractFactory) {
-        dataStore = abstractFactory.getDataStore();
+        dataStore = abstractFactory.CreateDataStore();
         storeData = abstractFactory.CreateStoreData();
         incorrectIDMessage = abstractFactory.CreateIncorrectIdMessage();
         incorrectPINMessage = abstractFactory.CreateIncorrectPinMessage();
@@ -63,42 +63,42 @@ public class OutputProcessor {
     }
 
     public void PromptForPin() {
-        promptForPin.PromptForPin();
+        promptForPin.PromptForPinMessage();
     }
 
     public void TooManyAttemptsMsg() {
-        tooManyAttemptsMsg.TooManyAttemptsMsg();
+        tooManyAttemptsMsg.TooManyAttemptsMessage();
     }
 
     public void DisplayMenu() {
-        displayMenu.DisplayMenu();
+        displayMenu.DisplayAccountMenu();
     }
 
     public void DisplayBalance() {
-        displayBalance.DisplayBalance(dataStore);
+        displayBalance.DisplayAccountBalance(dataStore);
     }
 
     public void MakeDeposit() {
-        makeDeposit.MakeDeposit(dataStore);
+        makeDeposit.MakeDepositToAccount(dataStore);
     }
 
     public void MakeWithdraw() {
-        makeWithdraw.MakeWithdraw(dataStore);
+        makeWithdraw.MakeWithdrawFromAccount(dataStore);
     }
 
     public void Penalty() {
-        penalty.Penalty(dataStore);
+        penalty.ApplyPenalty(dataStore);
     }
 
     public void IncorrectLockMsg() {
-        incorrectLockMsg.IncorrectLockMsg();
+        incorrectLockMsg.IncorrectLockMessage();
     }
 
     public void IncorrectUnlockMsg() {
-        incorrectUnlockMsg.IncorrectUnlockMsg();
+        incorrectUnlockMsg.IncorrectUnlockMessage();
     }
 
     public void NoFundsMsg() {
-        noFundsMsg.NoFundsMsg();
+        noFundsMsg.NoFundsMessage();
     }
 }

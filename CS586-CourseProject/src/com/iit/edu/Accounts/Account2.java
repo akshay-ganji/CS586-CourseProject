@@ -14,7 +14,7 @@ public class Account2 {
     public Account2(AbstractFactory abstractFactory) {
         outputProcessor.initializeOutputProcessor(abstractFactory);
         this.mdaEfsm = new MDAEFSM(outputProcessor);
-        this.dataStore = abstractFactory.getDataStore();
+        this.dataStore = abstractFactory.CreateDataStore();
     }
 
     public void OPEN(int p,int y,float a)

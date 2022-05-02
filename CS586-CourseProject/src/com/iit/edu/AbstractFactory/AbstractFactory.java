@@ -29,5 +29,5 @@ public interface AbstractFactory {
     IncorrectLockMsg CreateIncorrectLockMsg();       //Method to display error message for incorrect lock PIN
     IncorrectUnlockMsg CreateIncorrectUnlockMsg();   //Method to display error message for incorrect unlock PIN
     NoFundsMsg CreateNoFundsMsg();                   //Method to display error message for no funds in account
-    DataStore getDataStore();                        //Method to get the datastore
+    DataStore CreateDataStore();                        //Method to get the datastore
 }

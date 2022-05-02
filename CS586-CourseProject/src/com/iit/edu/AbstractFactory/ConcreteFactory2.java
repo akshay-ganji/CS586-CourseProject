@@ -105,7 +105,7 @@ public class ConcreteFactory2 implements AbstractFactory{
     }
 
     @Override
-    public DataStore getDataStore() {
+    public DataStore CreateDataStore() {
         return this.dataStore2;
     }
 }

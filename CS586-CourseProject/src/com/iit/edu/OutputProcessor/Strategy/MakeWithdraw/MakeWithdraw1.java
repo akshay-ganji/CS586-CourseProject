@@ -5,7 +5,7 @@ import com.iit.edu.DataStore.DataStore1;
 
 public class MakeWithdraw1 extends MakeWithdraw{
     @Override
-    public void MakeWithdraw(DataStore ds)
+    public void MakeWithdrawFromAccount(DataStore ds)
     {
         ((DataStore1)ds).WithdrawFromAccount();
     }

@@ -7,7 +7,7 @@ import com.iit.edu.DataStore.DataStore1;
 public class Penalty1 extends Penalty{
 
     @Override
-    public void Penalty(DataStore ds)
+    public void ApplyPenalty(DataStore ds)
     {
         ((DataStore1)ds).applyPenalty();
         System.out.println("WARNING: Minimum balance requirement of $" + Constants.MIN_ACCOUNT1_BALANCE+" for Account-1");

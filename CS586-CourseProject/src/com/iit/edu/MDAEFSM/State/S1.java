@@ -36,7 +36,7 @@ public class S1 extends State{
 
     @Override
     public void Deposit() {
-        outputProcessor.MakeDeposit();
+        //This method is not reachable for S1 state;
     }
 
     @Override

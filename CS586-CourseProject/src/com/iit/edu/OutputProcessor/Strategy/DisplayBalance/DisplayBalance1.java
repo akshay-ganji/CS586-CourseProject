@@ -5,7 +5,7 @@ import com.iit.edu.DataStore.DataStore1;
 
 public class DisplayBalance1 extends DisplayBalance{
     @Override
-    public void DisplayBalance(DataStore dataStore) {
+    public void DisplayAccountBalance(DataStore dataStore) {
         System.out.println("Account1: Current Balance is $"+ ((DataStore1) dataStore).getBalance());
     }
 }

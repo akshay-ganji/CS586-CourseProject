@@ -4,7 +4,7 @@ import com.iit.edu.DataStore.DataStore;
 import com.iit.edu.DataStore.DataStore2;
 
 public class MakeDeposit2 extends MakeDeposit{
-    public void MakeDeposit(DataStore ds){
+    public void MakeDepositToAccount(DataStore ds){
         ((DataStore2)ds).DepositToAccount();
     }
 }
