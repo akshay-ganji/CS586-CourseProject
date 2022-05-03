@@ -3,7 +3,10 @@ package com.iit.edu.OutputProcessor.Strategy.Penalty;
 import com.iit.edu.Constants;
 import com.iit.edu.DataStore.DataStore;
 import com.iit.edu.DataStore.DataStore1;
-
+/*
+    STRATEGY PATTERN IMPLEMENTATION
+    Strategic implementation class for applying penalty for Account1
+ */
 public class Penalty1 extends Penalty{
 
     @Override

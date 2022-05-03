@@ -1,7 +1,10 @@
 package com.iit.edu.MDAEFSM.State;
 
 import com.iit.edu.Constants;
-
+/*
+    STATE PATTERN IMPLEMENTATION
+    Locked state for Account1
+ */
 public class Locked extends State{
     @Override
     public void Open() {

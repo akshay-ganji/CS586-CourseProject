@@ -16,23 +16,29 @@ import com.iit.edu.OutputProcessor.Strategy.PromptForPin.PromptForPin;
 import com.iit.edu.OutputProcessor.Strategy.StoreData.*;
 import com.iit.edu.OutputProcessor.Strategy.TooManyAttemptsMsg.TooManyAttemptsMsg;
 
-
+/*
+    STRATEGY PATTERN IMPLEMENTATION
+    Outprocessor for the MDA-EFSM Architecture
+    Implements Strategy Pattern of design to bind the required Actions in the concrete factories specific to Account types
+ */
 public class OutputProcessor {
-    private DataStore dataStore;
-    private StoreData storeData;
-    private IncorrectIdMsg incorrectIDMessage;
-    private IncorrectPinMsg incorrectPINMessage;
-    private PromptForPin promptForPin;
-    private TooManyAttemptsMsg tooManyAttemptsMsg;
-    private DisplayMenu displayMenu;
-    private DisplayBalance displayBalance;
-    private MakeDeposit makeDeposit;
-    private MakeWithdraw makeWithdraw;
-    private Penalty penalty;
-    private IncorrectLockMsg incorrectLockMsg;
-    private IncorrectUnlockMsg incorrectUnlockMsg;
-    private NoFundsMsg noFundsMsg;
+    private DataStore dataStore;                        //pointer to DataStore object
+    private StoreData storeData;                        //pointer to StoreData object
+    private IncorrectIdMsg incorrectIDMessage;          //pointer to IncorrectIdMsg object
+    private IncorrectPinMsg incorrectPINMessage;        //pointer to IncorrectPinMsg object
+    private PromptForPin promptForPin;                  //pointer to PromptForPin object
+    private TooManyAttemptsMsg tooManyAttemptsMsg;      //pointer to TooManyAttemptsMsg object
+    private DisplayMenu displayMenu;                    //pointer to DisplayMenu object
+    private DisplayBalance displayBalance;              //pointer to DisplayBalance object
+    private MakeDeposit makeDeposit;                    //pointer to MakeDeposit object
+    private MakeWithdraw makeWithdraw;                  //pointer to MakeWithdraw object
+    private Penalty penalty;                            //pointer to Penalty object
+    private IncorrectLockMsg incorrectLockMsg;          //pointer to IncorrectLockMsg object
+    private IncorrectUnlockMsg incorrectUnlockMsg;      //pointer to IncorrectUnlockMsg object
+    private NoFundsMsg noFundsMsg;                      //pointer to NoFundsMsg object
 
+
+    //Method to initialize outputprocessor with the binding from abstract factory
     public void initializeOutputProcessor(AbstractFactory abstractFactory) {
         dataStore = abstractFactory.CreateDataStore();
         storeData = abstractFactory.CreateStoreData();

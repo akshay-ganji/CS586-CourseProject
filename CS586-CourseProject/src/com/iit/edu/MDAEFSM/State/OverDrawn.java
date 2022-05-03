@@ -1,7 +1,10 @@
 package com.iit.edu.MDAEFSM.State;
 
 import com.iit.edu.Constants;
-
+/*
+    STATE PATTERN IMPLEMENTATION
+    Overdrawn state for Account1
+ */
 public class OverDrawn extends State{
 
     @Override

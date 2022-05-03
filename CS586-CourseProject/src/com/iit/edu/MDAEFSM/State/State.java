@@ -2,7 +2,10 @@ package com.iit.edu.MDAEFSM.State;
 
 import com.iit.edu.MDAEFSM.MDAEFSM;
 import com.iit.edu.OutputProcessor.OutputProcessor;
-
+/*
+    STATE PATTERN IMPLEMENTATION
+    Abstract class for all state operations
+ */
 public abstract class State {
         OutputProcessor outputProcessor;
         MDAEFSM mdaEfsm;

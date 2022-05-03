@@ -1,7 +1,10 @@
 package com.iit.edu.MDAEFSM.State;
 
 import com.iit.edu.Constants;
-
+/*
+   STATE PATTERN IMPLEMENTATION
+   CheckPin state for Account1 and Account2
+ */
 public class CheckPin extends State {
 
     @Override

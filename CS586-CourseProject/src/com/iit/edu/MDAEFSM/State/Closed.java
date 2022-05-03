@@ -1,7 +1,10 @@
 package com.iit.edu.MDAEFSM.State;
 
 import com.iit.edu.Constants;
-
+/*
+    STATE PATTERN IMPLEMENTATION
+    Closed state for Account2
+ */
 public class Closed extends State{
 
     @Override

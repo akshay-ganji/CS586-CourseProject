@@ -1,5 +1,8 @@
 package com.iit.edu.OutputProcessor.Strategy.DisplayMenu;
-
+/*
+    STRATEGY PATTERN IMPLEMENTATION
+    Strategic implementation class for Display menu for Account2 Objects
+ */
 public class DisplayMenu2 extends DisplayMenu {
 
     @Override

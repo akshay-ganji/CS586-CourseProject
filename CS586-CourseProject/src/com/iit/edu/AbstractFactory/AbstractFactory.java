@@ -14,7 +14,10 @@ import com.iit.edu.OutputProcessor.Strategy.Penalty.Penalty;
 import com.iit.edu.OutputProcessor.Strategy.PromptForPin.PromptForPin;
 import com.iit.edu.OutputProcessor.Strategy.StoreData.*;
 import com.iit.edu.OutputProcessor.Strategy.TooManyAttemptsMsg.TooManyAttemptsMsg;
-
+/*
+                            ABSTRACT FACTORY IMPLEMENTATION
+    Abstract class for the implementation of ABSTRACT FACTORY PATTERN for the Account Class
+ */
 public interface AbstractFactory {
     StoreData CreateStoreData();                     //Method to store data from user input
     PromptForPin CreatePromptForPin();               //Method to prompt pin from user input
@@ -29,5 +32,5 @@ public interface AbstractFactory {
     IncorrectLockMsg CreateIncorrectLockMsg();       //Method to display error message for incorrect lock PIN
     IncorrectUnlockMsg CreateIncorrectUnlockMsg();   //Method to display error message for incorrect unlock PIN
     NoFundsMsg CreateNoFundsMsg();                   //Method to display error message for no funds in account
-    DataStore CreateDataStore();                        //Method to get the datastore
+    DataStore CreateDataStore();                     //Method to get the datastore
 }

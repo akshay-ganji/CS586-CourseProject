@@ -23,6 +23,12 @@ import com.iit.edu.OutputProcessor.Strategy.StoreData.*;
 import com.iit.edu.OutputProcessor.Strategy.TooManyAttemptsMsg.TooManyAttemptsMsg;
 import com.iit.edu.OutputProcessor.Strategy.TooManyAttemptsMsg.TooManyAttemptsMsg1;
 
+/*
+                        ABSTRACT FACTORY IMPLEMENTATION
+    Concrete class for the implementation of ABSTRACT FACTORY PATTERN for the Account1 Class
+    This class deals with the creation logic of Account 1 specific operations
+ */
+
 public class ConcreteFactory1 implements AbstractFactory{
     DataStore1 dataStore1 = new DataStore1();                           //Create DataStore1 object for Account1
     StoreData storeData1 = new StoreData1();                            //Create StoreData1 object for Account1
